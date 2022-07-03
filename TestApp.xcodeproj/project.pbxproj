@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		081D8CC9287147F80083E016 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081D8CC8287147F80083E016 /* QuestionsViewController.swift */; };
 		0873A8522870A07000B6FD72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0873A8512870A07000B6FD72 /* AppDelegate.swift */; };
 		0873A8542870A07000B6FD72 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0873A8532870A07000B6FD72 /* SceneDelegate.swift */; };
 		0873A8562870A07000B6FD72 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0873A8552870A07000B6FD72 /* IntroductionViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		081D8CC8287147F80083E016 /* QuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
 		0873A84E2870A07000B6FD72 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0873A8512870A07000B6FD72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0873A8532870A07000B6FD72 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				0873A8552870A07000B6FD72 /* IntroductionViewController.swift */,
+				081D8CC8287147F80083E016 /* QuestionsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0873A8562870A07000B6FD72 /* IntroductionViewController.swift in Sources */,
+				081D8CC9287147F80083E016 /* QuestionsViewController.swift in Sources */,
 				0873A8522870A07000B6FD72 /* AppDelegate.swift in Sources */,
 				0873A8742870A2B600B6FD72 /* Color.swift in Sources */,
 				0873A8762870A2D500B6FD72 /* Extension + UIView.swift in Sources */,

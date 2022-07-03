@@ -22,9 +22,6 @@ class IntroductionViewController: UIViewController {
         setupUI()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        print(currentQuestions)
-    }
     
     // MARK: - IB Actions
     @IBAction func employeeButtonsPressed(_ sender: UIButton) {
@@ -40,11 +37,11 @@ class IntroductionViewController: UIViewController {
         case .stacker:
             currentQuestions = Question.getStackerQustions()
         }
-        print(currentEmployee)
-        print(currentQuestions)
         
-//        performSegue(withIdentifier: "showQuestion", sender: nil)
+        performSegue(withIdentifier: "showQuestion", sender: nil)
     }
+    
+    @IBAction func unwind(for unwindSegue: UIStoryboardSegue) {} // Удалить Bar Button Items от QuestionsViewController!
     
 }
 

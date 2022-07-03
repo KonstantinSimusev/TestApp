@@ -58,14 +58,77 @@
                         <outletCollection property="employeeButtons" destination="SoU-uR-lQJ" collectionClass="NSMutableArray" id="IFX-hT-PqF"/>
                         <outletCollection property="employeeButtons" destination="Oyz-Cg-IVN" collectionClass="NSMutableArray" id="254-F1-Kpd"/>
                         <outletCollection property="employeeButtons" destination="tVJ-lE-1AU" collectionClass="NSMutableArray" id="QjR-GC-NpN"/>
+                        <segue destination="u6g-BS-31Q" kind="presentation" identifier="showQuestion" id="jWd-bM-AfB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="20" y="80"/>
         </scene>
+        <!--Вопросы №-->
+        <scene sceneID="mAW-Ji-Dwo">
+            <objects>
+                <viewController id="Fs5-sc-ivO" customClass="QuestionsViewController" customModule="TestApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zo5-g5-dLB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="K3f-tB-jNC">
+                                <rect key="frame" x="0.0" y="91" width="320" height="4"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lli-7l-gDz">
+                                <rect key="frame" x="20" y="145" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vvm-Nj-3Go"/>
+                        <color key="backgroundColor" systemColor="systemMintColor"/>
+                        <constraints>
+                            <constraint firstItem="K3f-tB-jNC" firstAttribute="leading" secondItem="vvm-Nj-3Go" secondAttribute="leading" id="5xE-hi-3Xy"/>
+                            <constraint firstItem="vvm-Nj-3Go" firstAttribute="trailing" secondItem="lli-7l-gDz" secondAttribute="trailing" constant="20" id="6Fm-Tb-eVs"/>
+                            <constraint firstItem="K3f-tB-jNC" firstAttribute="top" secondItem="vvm-Nj-3Go" secondAttribute="top" id="Ah1-i3-0dY"/>
+                            <constraint firstItem="lli-7l-gDz" firstAttribute="leading" secondItem="vvm-Nj-3Go" secondAttribute="leading" constant="20" id="ata-TQ-64Q"/>
+                            <constraint firstItem="vvm-Nj-3Go" firstAttribute="trailing" secondItem="K3f-tB-jNC" secondAttribute="trailing" id="k7N-5k-FEl"/>
+                            <constraint firstItem="lli-7l-gDz" firstAttribute="top" secondItem="K3f-tB-jNC" secondAttribute="bottom" constant="50" id="uuG-Fg-lMI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Вопросы №" id="pZG-Le-ltc">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrowshape.turn.up.backward" catalog="system" id="VKT-Xn-uZE">
+                            <connections>
+                                <segue destination="LzG-u9-sBq" kind="unwind" unwindAction="unwindFor:" id="gjM-MM-Y59"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uON-mj-RRF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="LzG-u9-sBq" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1588" y="79"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="OwQ-3C-l7E">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="u6g-BS-31Q" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="R6y-6P-T9P">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Fs5-sc-ivO" kind="relationship" relationship="rootViewController" id="QbM-mq-nXg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YNB-yt-Psp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="803" y="79"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="arrowshape.turn.up.backward" catalog="system" width="128" height="106"/>
         <systemColor name="systemMintColor">
             <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
