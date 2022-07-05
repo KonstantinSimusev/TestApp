@@ -26,17 +26,10 @@ class QuestionsViewController: UIViewController {
     
     // MARK: - Private Properties
     private var questionIndex = 0
-    private var choosenAnswers: [Answer] = []
-    
+    private var choosenAnswers: [Bool] = []
     private var currentAnswers: [Answer] {
-        var currentAnswers: [Answer] = []
-        
-        if let questions = questions {
-            currentAnswers = questions[questionIndex].answers
-        }
-        return currentAnswers
+        questions[questionIndex].answers.shuffled()
     }
-    
     
     // MARK: - Override Methods
     override func viewDidLoad() {
@@ -45,23 +38,25 @@ class QuestionsViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let resultsVC = segue.destination as? ResultsViewController else { return }
+        resultsVC.answers = choosenAnswers
+        resultsVC.questions = questions
+    }
+    
     // MARK: - IB Actions
     @IBAction func singleButtonAnswerPressed(_ sender: UIButton) {
         guard let buttonIndex = singleButtons.firstIndex(of: sender) else { return }
-        let currentAnswer = currentAnswers[buttonIndex]
+        let currentAnswer = currentAnswers[buttonIndex].type
         choosenAnswers.append(currentAnswer)
         nextQuestion()
     }
     
     @IBAction func multipleButtonAnswerPressed() {
-        for (multipleSwitch, answer) in zip(multipleSwitches, currentAnswers) {
-            if multipleSwitch.isOn {
-                choosenAnswers.append(answer)
-            }
-        }
+        getAnwers()
         nextQuestion()
+        isSwitchOff()
     }
-    
 }
 
 // MARK: - Private Methods
@@ -82,9 +77,8 @@ extension QuestionsViewController {
         }
         
         // Get current question
-        guard let questions = questions else { return }
         let currentQuestion = questions[questionIndex]
-        
+
         // Set current question for question label
         questionLabel.text = currentQuestion.title
         
@@ -102,6 +96,9 @@ extension QuestionsViewController {
         
         // Set button
         setupButton()
+        
+        // Set label
+        setMultipleLabel()
     }
     
     private func showCurrentAnswers(for type: ResponseType) {
@@ -140,12 +137,56 @@ extension QuestionsViewController {
         performSegue(withIdentifier: "showResult", sender: nil)
     }
     
+    private func getAnwers() {
+        if getMultipleSwitches() == getMultipleAnswers() {
+            choosenAnswers.append(true)
+        } else {
+            choosenAnswers.append(false)
+        }
+    }
+    
+    private func getMultipleSwitches() -> [Bool] {
+        var switches: [Bool] = []
+        
+        multipleSwitches.forEach { multipleSwitch in
+            if multipleSwitch.isOn {
+                switches.append(true)
+            } else {
+                switches.append(false)
+            }
+        }
+        return switches
+    }
+    
+    private func getMultipleAnswers() -> [Bool] {
+        var answers: [Bool] = []
+        
+        currentAnswers.forEach { answer in
+            answers.append(answer.type)
+        }
+        return answers
+    }
+    
+    private func isSwitchOff() {
+        multipleSwitches.forEach { multipleSwitch in
+            multipleSwitch.isOn = false
+        }
+    }
+    
     private func setupButton() {
         singleButtons.forEach { button in
-            button.titleLabel?.font = UIFont.systemFont(ofSize: 17)
-            button.setTitleColor(.systemBlue, for: .normal)
+            button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
+            button.setTitleColor(.black, for: .normal)
             button.backgroundColor = .white
             button.layer.cornerRadius = 10
+        }
+    }
+    
+    private func setMultipleLabel() {
+        multipleLabels.forEach { label in
+            label.textColor = .black
+            label.font = .boldSystemFont(ofSize: 17)
+            label.layer.cornerRadius = 10
         }
     }
 }

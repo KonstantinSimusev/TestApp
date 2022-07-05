@@ -27,9 +27,45 @@ struct Question {
                 title: "Что пакует укладчик-упаковщик?",
                 type: .multiple,
                 answers: [
+                    Answer(title: "Чемоданы", type: false),
+                    Answer(title: "Рулоны", type: true),
+                    Answer(title: "Пачки", type: true)
+                ]
+            ),
+            Question(
+                title: "Что собирает укладчик-упаковщик?",
+                type: .multiple,
+                answers: [
                     Answer(title: "Бутылки", type: false),
-                    Answer(title: "Пачки", type: true),
-                    Answer(title: "Рулоны", type: true)
+                    Answer(title: "Мусор", type: true),
+                    Answer(title: "Монеты", type: false)
+                ]
+            ),
+            Question(
+                title: "Что учит укладчик-упаковщик?",
+                type: .single,
+                answers: [
+                    Answer(title: "Стихотворение", type: false),
+                    Answer(title: "Астрофизику", type: false),
+                    Answer(title: "Схемы", type: true)
+                ]
+            ),
+            Question(
+                title: "Что знает укладчик-упаковщик?",
+                type: .single,
+                answers: [
+                    Answer(title: "Будущее", type: false),
+                    Answer(title: "Прошлое", type: false),
+                    Answer(title: "Инструкцию", type: true)
+                ]
+            ),
+            Question(
+                title: "Что пишет укладчик-упаковщик?",
+                type: .multiple,
+                answers: [
+                    Answer(title: "Реп", type: false),
+                    Answer(title: "Объяснительную", type: true),
+                    Answer(title: "Заявление", type: true)
                 ]
             )
         ]
@@ -50,9 +86,45 @@ struct Question {
                 title: "Что режет резчик холодного металла?",
                 type: .multiple,
                 answers: [
-                    Answer(title: "Бутылки", type: false),
+                    Answer(title: "Колбасу", type: false),
                     Answer(title: "Металл", type: true),
                     Answer(title: "Пластик", type: true)
+                ]
+            ),
+            Question(
+                title: "Что собирает резчик холодного металла?",
+                type: .multiple,
+                answers: [
+                    Answer(title: "Бутылки", type: false),
+                    Answer(title: "Мусор", type: true),
+                    Answer(title: "Монеты", type: false)
+                ]
+            ),
+            Question(
+                title: "Что учит резчик холодного металла?",
+                type: .single,
+                answers: [
+                    Answer(title: "Стихотворение", type: false),
+                    Answer(title: "Астрофизику", type: false),
+                    Answer(title: "Схемы", type: true)
+                ]
+            ),
+            Question(
+                title: "Что знает резчик холодного металла?",
+                type: .single,
+                answers: [
+                    Answer(title: "Будущее", type: false),
+                    Answer(title: "Прошлое", type: false),
+                    Answer(title: "Инструкцию", type: true)
+                ]
+            ),
+            Question(
+                title: "Что пишет резчик холодного металла?",
+                type: .multiple,
+                answers: [
+                    Answer(title: "Реп", type: false),
+                    Answer(title: "Объяснительную", type: true),
+                    Answer(title: "Заявление", type: true)
                 ]
             )
         ]
@@ -73,9 +145,45 @@ struct Question {
                 title: "Что раскрепляет штабелировщик металла?",
                 type: .multiple,
                 answers: [
-                    Answer(title: "Бутылки", type: false),
+                    Answer(title: "Листы", type: true),
                     Answer(title: "Пачки", type: true),
                     Answer(title: "Рулоны", type: true)
+                ]
+            ),
+            Question(
+                title: "Что собирает штабелировщик металла?",
+                type: .multiple,
+                answers: [
+                    Answer(title: "Бутылки", type: false),
+                    Answer(title: "Мусор", type: true),
+                    Answer(title: "Монеты", type: false)
+                ]
+            ),
+            Question(
+                title: "Что учит штабелировщик металла?",
+                type: .single,
+                answers: [
+                    Answer(title: "Стихотворение", type: false),
+                    Answer(title: "Астрофизику", type: false),
+                    Answer(title: "Схемы", type: true)
+                ]
+            ),
+            Question(
+                title: "Что знает штабелировщик металла?",
+                type: .single,
+                answers: [
+                    Answer(title: "Будущее", type: false),
+                    Answer(title: "Прошлое", type: false),
+                    Answer(title: "Инструкцию", type: true)
+                ]
+            ),
+            Question(
+                title: "Что пишет штабелировщик металла?",
+                type: .multiple,
+                answers: [
+                    Answer(title: "Реп", type: false),
+                    Answer(title: "Объяснительную", type: true),
+                    Answer(title: "Заявление", type: true)
                 ]
             )
         ]

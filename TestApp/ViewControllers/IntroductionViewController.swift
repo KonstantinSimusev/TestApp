@@ -24,7 +24,7 @@ class IntroductionViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let questionsVC = segue.destination as? QuestionsViewController else { return }
-        questionsVC.questions = currentQuestions
+        questionsVC.questions = currentQuestions.shuffled()
     }
     
     // MARK: - IB Actions
@@ -52,8 +52,8 @@ class IntroductionViewController: UIViewController {
 extension IntroductionViewController {
     private func setupUI() {
         view.addVerticalGradientLayr(
-            topColor: Color.steelBlue,
-            bottomColor: Color.lightSteelBlue
+            topColor: Color.lightSteelBlue,
+            bottomColor: Color.steelBlue
         )
         
         setupButton()
@@ -61,12 +61,11 @@ extension IntroductionViewController {
     
     private func setupButton() {
         for (button, employee) in zip(employeeButtons, employees) {
-            button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
-            button.setTitleColor(.systemBlue, for: .normal)
+            button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+            button.setTitleColor(.black, for: .normal)
             button.backgroundColor = .white
             button.layer.cornerRadius = 10
             button.setTitle(employee.rawValue, for: .normal)
         }
     }
-    
 }
