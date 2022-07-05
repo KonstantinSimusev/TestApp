@@ -11,11 +11,7 @@ struct Question {
     let title: String
     let type: ResponseType
     let answers: [Answer]
-    
-    func getShuffledAnswers(_ answers: [Answer]) -> [Answer] {
-        answers.shuffled()
-    }
-    
+
     static func getPackerQuestions() -> [Question] {
         [
             Question(
@@ -70,6 +66,15 @@ struct Question {
                     Answer(title: "Реп", type: false),
                     Answer(title: "Объяснительную", type: true),
                     Answer(title: "Заявление", type: true)
+                ]
+            ),
+            Question(
+                title: "Что пишет укладчик-упаковщик, когда приходит на любимую работу в 8 утра каждый день? А?",
+                type: .multiple,
+                answers: [
+                    Answer(title: "Реп для своей любимой жены", type: false),
+                    Answer(title: "Объяснительную для своего грозного директора, ДОН", type: true),
+                    Answer(title: "Заявление на уволнение с лучшей работы мира", type: true)
                 ]
             )
         ]

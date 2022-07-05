@@ -13,8 +13,12 @@ class IntroductionViewController: UIViewController {
     @IBOutlet var employeeButtons: [UIButton]!
     
     // MARK: - Private Properties
+    private let questionsCount = 4
     private let employees = Employee.allCases
     private var currentQuestions: [Question] = []
+    private var numberFromEnd: Int {
+        currentQuestions.count - questionsCount
+    }
     
     // MARK: - Override Methods
     override func viewDidLoad() {
@@ -24,7 +28,7 @@ class IntroductionViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let questionsVC = segue.destination as? QuestionsViewController else { return }
-        questionsVC.questions = getShuffled(currentQuestions)
+        questionsVC.questions = getShuffled(currentQuestions).dropLast(numberFromEnd)
     }
     
     // MARK: - IB Actions
@@ -35,11 +39,11 @@ class IntroductionViewController: UIViewController {
         
         switch currentEmployee {
         case .packer:
-            currentQuestions = getRandomQuestion(for: Question.getPackerQuestions())
+            currentQuestions = Question.getPackerQuestions()
         case .cutter:
-            currentQuestions = getRandomQuestion(for: Question.getCutterQustions())
+            currentQuestions = Question.getCutterQustions()
         case .stacker:
-            currentQuestions = getRandomQuestion(for: Question.getStackerQustions())
+            currentQuestions = Question.getStackerQustions()
         }
         
         performSegue(withIdentifier: "showQuestion", sender: nil)
@@ -71,19 +75,6 @@ extension IntroductionViewController {
             shuffleQuestions.append(shuffleQuestion)
         }
         return shuffleQuestions.shuffled()
-    }
-    
-    private func getRandomQuestion(for questions: [Question]) -> [Question] {
-        var randomQuestions: [Question] = []
-        var sum = 0
-        
-        while sum < 4 {
-            sum += 1
-            if let randomQuestion = questions.randomElement() {
-                randomQuestions.append(randomQuestion)
-            }
-        }
-        return randomQuestions
     }
     
     private func setupButton() {
