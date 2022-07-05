@@ -12,6 +12,10 @@ struct Question {
     let type: ResponseType
     let answers: [Answer]
     
+    func getShuffledAnswers(_ answers: [Answer]) -> [Answer] {
+        answers.shuffled()
+    }
+    
     static func getPackerQuestions() -> [Question] {
         [
             Question(

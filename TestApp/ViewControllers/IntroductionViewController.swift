@@ -24,7 +24,7 @@ class IntroductionViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let questionsVC = segue.destination as? QuestionsViewController else { return }
-        questionsVC.questions = currentQuestions.shuffled()
+        questionsVC.questions = getShuffled(currentQuestions)
     }
     
     // MARK: - IB Actions
@@ -35,11 +35,11 @@ class IntroductionViewController: UIViewController {
         
         switch currentEmployee {
         case .packer:
-            currentQuestions = Question.getPackerQuestions()
+            currentQuestions = getRandomQuestion(for: Question.getPackerQuestions())
         case .cutter:
-            currentQuestions = Question.getCutterQustions()
+            currentQuestions = getRandomQuestion(for: Question.getCutterQustions())
         case .stacker:
-            currentQuestions = Question.getStackerQustions()
+            currentQuestions = getRandomQuestion(for: Question.getStackerQustions())
         }
         
         performSegue(withIdentifier: "showQuestion", sender: nil)
@@ -59,6 +59,33 @@ extension IntroductionViewController {
         setupButton()
     }
     
+    func getShuffled(_ questions: [Question]) -> [Question] {
+        var shuffleQuestions: [Question] = []
+        
+        questions.forEach { question in
+            let shuffleQuestion = Question(
+                title: question.title,
+                type: question.type,
+                answers: question.answers.shuffled()
+            )
+            shuffleQuestions.append(shuffleQuestion)
+        }
+        return shuffleQuestions.shuffled()
+    }
+    
+    private func getRandomQuestion(for questions: [Question]) -> [Question] {
+        var randomQuestions: [Question] = []
+        var sum = 0
+        
+        while sum < 4 {
+            sum += 1
+            if let randomQuestion = questions.randomElement() {
+                randomQuestions.append(randomQuestion)
+            }
+        }
+        return randomQuestions
+    }
+    
     private func setupButton() {
         for (button, employee) in zip(employeeButtons, employees) {
             button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
@@ -68,4 +95,5 @@ extension IntroductionViewController {
             button.setTitle(employee.rawValue, for: .normal)
         }
     }
+
 }

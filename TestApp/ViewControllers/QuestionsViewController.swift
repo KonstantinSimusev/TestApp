@@ -28,14 +28,13 @@ class QuestionsViewController: UIViewController {
     private var questionIndex = 0
     private var choosenAnswers: [Bool] = []
     private var currentAnswers: [Answer] {
-        questions[questionIndex].answers.shuffled()
+        questions[questionIndex].answers
     }
     
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
