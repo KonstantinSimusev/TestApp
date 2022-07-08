@@ -20,6 +20,7 @@ class QuestionsViewController: UIViewController {
     @IBOutlet var multipleStackView: UIStackView!
     @IBOutlet var multipleLabels: [UILabel]!
     @IBOutlet var multipleSwitches: [UISwitch]!
+    @IBOutlet var multipleButton: UIButton!
     
     // MARK: - Public Properties
     var questions: [Question]!
@@ -94,7 +95,8 @@ extension QuestionsViewController {
         showCurrentAnswers(for: currentQuestion.type)
         
         // Set button
-        setupButton()
+        setSingleButton()
+        setMultipleButton()
         
         // Set label
         setMultipleLabel()
@@ -172,20 +174,27 @@ extension QuestionsViewController {
         }
     }
     
-    private func setupButton() {
+    private func setSingleButton() {
         singleButtons.forEach { button in
-            button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
-            button.setTitleColor(.black, for: .normal)
-            button.backgroundColor = .white
+            button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 21)
+            button.setTitleColor(.darkGray, for: .normal)
+            button.backgroundColor = .white.withAlphaComponent(0.3)
             button.layer.cornerRadius = 10
         }
     }
     
     private func setMultipleLabel() {
         multipleLabels.forEach { label in
-            label.textColor = .black
-            label.font = .boldSystemFont(ofSize: 17)
+            label.textColor = .darkGray
+            label.font = .boldSystemFont(ofSize: 20)
             label.layer.cornerRadius = 10
         }
+    }
+    
+    private func setMultipleButton() {
+        multipleButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 22)
+        multipleButton.setTitleColor(.darkGray, for: .normal)
+        multipleButton.backgroundColor = .white.withAlphaComponent(0.3)
+        multipleButton.layer.cornerRadius = 10
     }
 }

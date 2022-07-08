@@ -79,9 +79,9 @@ extension IntroductionViewController {
     
     private func setupButton() {
         for (button, employee) in zip(employeeButtons, employees) {
-            button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-            button.setTitleColor(.black, for: .normal)
-            button.backgroundColor = .white
+            button.backgroundColor = .white.withAlphaComponent(0.3)
+            button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 22)
+            button.setTitleColor(.darkGray, for: .normal)
             button.layer.cornerRadius = 10
             button.setTitle(employee.rawValue, for: .normal)
         }
